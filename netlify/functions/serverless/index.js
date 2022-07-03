@@ -11,23 +11,22 @@ async function handler(event) {
     functionsDir: './netlify/functions/',
   });
 
-  //event.headers.cookie
-
   try {
     if (event.httpMethod === 'POST') {
-     const formData = (new URLSearchParams(event.body))
+      const formData = (new URLSearchParams(event.body))
 
-     if (formData.get('country') || formData.get('station')) {
-      elev.options.query = {
-        country: formData.get('country'),
-        station: formData.get('station'),
-      };
-     }
+      if (formData.get('country') || formData.get('station')) {
+        elev.options.query = {
+          country: formData.get('country'),
+          station: formData.get('station'),
+        };
+      }
     }
 
     let [page] = await elev.getOutput();
 
-    // If you want some of the data cascade available in `page.data`, use `eleventyConfig.dataFilterSelectors`.
+    // If you want some of the data cascade available in `page.data`,
+    // use `eleventyConfig.dataFilterSelectors`.
     // Read more: https://www.11ty.dev/docs/config/#data-filter-selectors
 
     return {
@@ -39,7 +38,6 @@ async function handler(event) {
     };
   } catch (error) {
     // Only console log for matching serverless paths
-    // (otherwise you’ll see a bunch of BrowserSync 404s for non-dynamic URLs during --serve)
     if (elev.isServerlessUrl(event.path)) {
       console.log('Serverless Error:', error);
     }
