@@ -1,50 +1,58 @@
----js
-{
-  layout: "layout.njk",
-  localdata: "I am Local Data",
-  now: (new Date()).toISOString(),
-  permalink: {
-    serverless: "/",
-  }
-}
 ---
-<h1>Welcome to the Web Radio Player</h1>
-
-{% set country = eleventy.serverless.query.country %}
-{% set station = eleventy.serverless.query.station %}
-
-<form action="/" method="post">
-  <label for="country">Country</label>
-  <select name="country" id="country">
-    <option value="" {% if not country %}selected{% endif %}>Select a country</option>
-    {%- for item in globaldata.countries -%}
-      <option value="{{item.code}}" {% if country == item.code %}selected{% endif %}>{{item.name}}</option>
-    {%- endfor -%}
-  </select>
-
-  {% if country %}
-    <label for="station">Station</label>
-    <select name="station" id="station">
-      <option value="" {% if not station %}selected{% endif %}>Select a station</option>
-      {%- for item in globaldata.stations[country] -%}
-        <option value="{{item.code}}" {% if eleventy.serverless.query.station == item.code %}selected{% endif %}>{{item.name}}</option>
+permalink:
+  serverless: /
+---
+{%- set country = eleventy.serverless.query.country -%}
+{%- set station = eleventy.serverless.query.station -%}
+<!doctype html>
+<html lang="en" style="color-scheme: dark light;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Radio Player">
+    <title>Web Radio Player</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📣</text></svg>">
+  </head>
+  <body>
+  <h1>Web Radio Player</h1>
+  <form action="/" method="post">
+    <label for="country">Country</label>
+    <select name="country" id="country">
+      <option value="" {% if not country %}selected{% endif %}>Select a country</option>
+      {%- for item in globaldata.countries -%}
+        <option value="{{item.code}}" {% if country == item.code %}selected{% endif %}>{{item.name}}</option>
       {%- endfor -%}
     </select>
-  {% endif %}
 
-  <button type="submit">Apply selection</button>
-</form>
+    {% if country %}
+      <label for="station">Station</label>
+      <select name="station" id="station">
+        <option value="" {% if not station %}selected{% endif %}>Select a station</option>
+        {%- for item in globaldata.stations[country] -%}
+          <option value="{{item.code}}" {% if eleventy.serverless.query.station == item.code %}selected{% endif %}>{{item.name}}</option>
+        {%- endfor -%}
+      </select>
+    {% endif %}
 
-{%- if country -%}
-  {%- if station -%}
-   {%- set currentStation = globaldata.stations[country] | activeStation(station) -%}
-   <p>Selected station: {{ currentStation.name }}</p>
-   {%- if currentStation and currentStation.stream -%}
-      <audio controls src="{{ currentStation.stream }}">
-        Your browser does not support the audio element.
-      </audio>
+    <button type="submit">Apply selection</button>
+  </form>
+
+  {%- if country -%}
+    {%- if station -%}
+    {%- set currentStation = globaldata.stations[country] | activeStation(station) -%}
+    <p>Selected station: {{ currentStation.name }}</p>
+    {%- if currentStation and currentStation.stream -%}
+        <audio controls src="{{ currentStation.stream }}">
+          Your browser does not support the audio element.
+        </audio>
+      {%- endif -%}
+    {%- else -%}
+      <p>Please Select a station</p>
     {%- endif -%}
-  {%- else -%}
-    <p>Please Select a station</p>
   {%- endif -%}
-{%- endif -%}
+  </body>
+  <footer>
+    <p><a href="https://www.11ty.dev/">Using Eleventy {{ eleventy.version }}</a></p>
+  </footer>
+  <script type="application/json">{{ globaldata.stations | dump(2) | safe }}</script>
+</html>
