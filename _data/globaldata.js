@@ -10,7 +10,7 @@ module.exports = {
     GB: [
       {
         code: 'BBC6',
-        name: "BBC 6 Music",
+        name: "BBC 6",
         stream: "http://stream.live.vc.bbcmedia.co.uk/bbc_6music"
       },
       {
@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         code: 'ROCK',
-        name: "Rock FM (es)",
+        name: "Rock FM",
         stream: "http://rockfm.cope.stream.flumotion.com/cope/rockfm/playlist.m3u8"
       },
       {
@@ -51,31 +51,31 @@ module.exports = {
     ],
     GR: [
       {
-        name: "ERA 1 (PROTO)",
+        name: "ERA 1",
         code: "ERA1",
         stream: "http://radiostreaming.ert.gr/ert-proto",
         imageUrl: ""
       },
       {
-        name: "ERA 2 (DEFTERO)",
+        name: "ERA 2",
         code: "ERA2",
         stream: "http://radiostreaming.ert.gr/ert-deftero",
         imageUrl: ""
       },
       {
-        name: "ERA 3 (TRITO)",
+        name: "ERA 3",
         code: "ERA3",
         stream: "http://radiostreaming.ert.gr/ert-trito",
         imageUrl: ""
       },
       {
-        name: "ERA 4 (SPORT)",
+        name: "ERA 4",
         code: "ERA4",
         stream: "http://radiostreaming.ert.gr/ert-erasport",
         imageUrl: ""
       },
       {
-        name: "ERA 5 (VOICE OF GREECE)",
+        name: "ERA 5",
         code: "ERA5",
         stream: "http://radiostreaming.ert.gr/ert-voiceofgreece",
         imageUrl: ""
@@ -87,19 +87,19 @@ module.exports = {
         imageUrl: ""
       },
       {
-        name: "En Lefko 877 radio",
+        name: "En Lefko",
         code: "ENLEFKO",
         stream: "http://stream.radiojar.com:80/enlefko877",
         imageUrl: ""
       },
       {
-        name: "Best FM 92.6",
+        name: "Best FM",
         code: "BEST",
         stream: "http://best.live24.gr/best1222",
         imageUrl: ""
       },
       {
-        name: "Kiss FM 92.9",
+        name: "Kiss FM",
         code: "KISS",
         stream: "http://kissfm.live24.gr/kiss2111",
         imageUrl: ""
