@@ -12,5 +12,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: 'serverless',
     functionsDir: './netlify/functions/',
+    copy: [
+      { from: "assets", to: "assets" },
+    ]
   });
+
+  eleventyConfig.addPassthroughCopy("assets");
 };

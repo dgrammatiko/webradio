@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "description": "Web Radio Player",
+  "author": "Dimitrios Grammatikogiannis",
+  "license": "MIT",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
@@ -12,12 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/dgrammatiko/webradio.git"
   },
-  "author": "Dimitrios Grammatikogiannis",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dgrammatiko/webradio/issues"
-  },
-  "homepage": "https://github.com/dgrammatiko/webradio#readme",
   "dependencies": {
     "@11ty/eleventy": "2.0.0-canary.12",
     "@netlify/functions": "1.0.0"

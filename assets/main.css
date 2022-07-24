@@ -1,0 +1,190 @@
+/* Page wide */
+:root {
+  color-scheme: dark light;
+  --bg-color: #202024;
+  --fg-color: #fff;
+  --fg-interactive-color: #8fb2cb;
+}
+media-query(prefers-color-scheme: light) {
+  --bg-color: #fff;
+  --fg-color: #202024;
+}
+html {
+  font-family: system-ui;
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100%;
+}
+main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 20rem;
+}
+footer {
+  grid-row-end: 3;
+  grid-row-start: 2;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 20rem;
+}
+footer a {
+  color: var(--fg-interactive-color);
+}
+
+/* Custom Form */
+fieldset {
+  display: grid;
+  border: 0;
+  grid-gap: .8rem;
+  margin-bottom: 1rem;`
+  padding: 1rem .3rem;
+}
+label {
+  display: block;
+  font-family: inherit;
+  font-size: 1.4rem;
+  margin-bottom: .4rem;
+  width: 100%;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -moz-padding-start: calc(0.75rem - 3px);
+  appearance: none;
+  display: block;
+  background-color: var(--fg-interactive-color);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;
+  border: .0128rem solid var(--bg-color);
+  border-radius: .375rem;
+  color: var(--bg-color);
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: .375rem 2.25rem .375rem .75rem;
+  width: 100%;
+}
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  display: block;
+  background-color: transparent;
+  border: 1px solid var(--fg-interactive-color);
+  border-radius: 0.375rem;;
+  color: var(--fg-color);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+}
+button:hover,
+button:focus {
+  background-color: var(--fg-interactive-color);
+  color: var(--bg-color);
+}
+
+/* Custom Player */
+web-radio-player {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  /* grid-template-rows: 1fr 1fr; */
+  grid-gap: 1rem;
+}
+
+web-radio-player button {
+  --_fg-color: var(--fg-interactive-color, blue);
+  --_bg-color: var(--bg-color, reb);
+  align-items: center;
+  background-color: var(--_fg-color);
+  border: none;
+  border-radius: 100%;
+  color: var(--_bg-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: .5rem .4rem;
+}
+.play-pause-button {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+.mute-button {
+  height: 1.8rem;
+}
+.volume-controls {
+  align-items: center;
+  display: flex;
+  grid-column: span 2;
+}
+.currently-playing {
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  justify-items: start;
+}
+.currently-playing-title {
+  font-size: 1.3rem;
+}
+.currently-playing-image {
+  width: 40%;
+}
+
+.volume-control {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid var(--fg-interactive-color, blue);
+  border-radius: 4rem;
+  margin-left: 1.3rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  --_fg-color: var(--fg-interactive-color, blue);
+  --_bg-color: var(--bg-color, reb);
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--_fg-color);
+  border-radius: 50%;
+  box-shadow: -100rem 0 0 99.4rem var(--_fg-color);
+  cursor: ew-resize;
+  height: 1rem;
+  width: 1rem;
+}
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--_bg-color);
+  border-radius: 50%;
+  box-shadow: -100rem 0 0 99.4rem var(--_bg-color);
+  cursor: ew-resize;
+  height: 1rem;
+  width: 1rem;
+}
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--_bg-color);
+  border-radius: 50%;
+  box-shadow: -100rem 0 0 99.4rem var(--_bg-color);
+  cursor: ew-resize;
+  height: 1rem;
+  width: 1rem;
+}
+input[type="range"]:focus {
+  border-radius: 4rem;
+  box-shadow: 0 0 15px -4px var(--_fg-color);
+}
