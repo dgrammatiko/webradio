@@ -1,6 +1,6 @@
-const { EleventyServerlessBundlerPlugin } = require('@11ty/eleventy');
+import { EleventyServerlessBundlerPlugin } from '@11ty/eleventy';
 
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
   eleventyConfig.addNunjucksFilter('activeStation', function(array, station) {
     const x = array.filter(x => x.code === station);
     if (x.length) {
