@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Web Radio Player",
+  "type": "module",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
